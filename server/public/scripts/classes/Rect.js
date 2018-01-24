@@ -1,7 +1,6 @@
 import {Vec2} from './math.js';
-
 export default class Rect {
-  constructor(x = 0, y = 0,width = 100,height = 100,context) {
+  constructor(context,x = 0, y = 0,width = 100,height = 100) {
     this.size = new Vec2;
     this.pos = new Vec2;
     this.context = context;
@@ -18,8 +17,18 @@ export default class Rect {
     this.pos.y = y;
   }
 
-  render() {
-    this.context.fillRect(this.pos.x,this.pos.y,this.size.x,this.size.y);
+  clear() {
+    this.context.clearRect(this.pos.x - 1, this.pos.y - 1, this.size.x + 2, this.size.y + 2);
   }
 
+  render() {
+    this.context.strokeRect(this.pos.x,this.pos.y,this.size.x,this.size.y);
+  }
+
+}
+
+export function clearRect(array) {
+  array.forEach((rect) => {
+    rect.clear();
+  })
 }
