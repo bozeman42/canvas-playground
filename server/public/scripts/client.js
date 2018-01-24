@@ -1,4 +1,4 @@
-import Rect, {clearRect} from './classes/Rect.js';
+import Rect, {clearRect, connectRect} from './classes/Rect.js';
 window.onload = () => {
   let canvas = document.getElementById('GoL');
   
@@ -14,13 +14,14 @@ window.onload = () => {
   let rects = [rect1,rect2];
   setInterval(() => {
     
-    clearRect(rects);
+    ctx.clearRect(0,0,canvas.width, canvas.height);
     rect1.setPosition(rect1.pos.x + 1,rect1.pos.y + 1);
     rect1.setSize(rect1.size.x + 1,rect1.size.y + 1);
     rect1.render();
     rect2.setPosition(rect2.pos.x - 1,rect2.pos.y + 1);
     // rect2.setSize(rect2.size.x + 1,rect2.size.y + 1);
     rect2.render();
+    connectRect(rects,ctx);
   }, 10);
 
 }

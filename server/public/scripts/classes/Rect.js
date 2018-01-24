@@ -32,3 +32,29 @@ export function clearRect(array) {
     rect.clear();
   })
 }
+
+export function connectRect(array,context) {
+  let c = context;
+  array.forEach((rect,i,arr) => {
+    arr.forEach((otherRect,j) => {
+      c.beginPath();
+      c.moveTo(rect.pos.x,rect.pos.y);
+      c.lineTo(otherRect.pos.x,otherRect.pos.y);
+      c.stroke();
+      c.beginPath();
+      c.moveTo(rect.pos.x + rect.size.x,rect.pos.y);
+      c.lineTo(otherRect.pos.x + otherRect.size.x,otherRect.pos.y);
+      c.stroke();
+      c.beginPath();
+      c.moveTo(rect.pos.x,rect.pos.y + rect.size.y);
+      c.lineTo(otherRect.pos.x,otherRect.pos.y + otherRect.size.y);
+      c.stroke();
+      c.beginPath();
+      c.moveTo(rect.pos.x + rect.size.x,rect.pos.y + rect.size.y);
+      c.lineTo(otherRect.pos.x + otherRect.size.x, otherRect.pos.y + otherRect.size.y);
+      c.stroke();
+
+
+    })
+  })
+}
