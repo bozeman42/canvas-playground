@@ -11,7 +11,8 @@ window.onload = () => {
 
   let rect1 = new Rect(ctx);
   let rect2 = new Rect(ctx, 500,100,100,100);
-  let rects = [rect1,rect2];
+  let rect3 = new Rect(ctx, 300,100,10,10);
+  let rects = [rect1,rect2,rect3];
   setInterval(() => {
     
     ctx.clearRect(0,0,canvas.width, canvas.height);
@@ -21,6 +22,7 @@ window.onload = () => {
     rect2.setPosition(rect2.pos.x - 1,rect2.pos.y + 1);
     // rect2.setSize(rect2.size.x + 1,rect2.size.y + 1);
     rect2.render();
+    rect3.render();
     connectRect(rects,ctx);
   }, 10);
 
