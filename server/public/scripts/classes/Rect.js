@@ -1,7 +1,7 @@
-import {Vec2} from './math';
+import {Vec2} from './math.js';
 
 export default class Rect {
-  constructor(width = 100,height = 100,x = 0, y = 0,context) {
+  constructor(x = 0, y = 0,width = 100,height = 100,context) {
     this.size = new Vec2;
     this.pos = new Vec2;
     this.context = context;
@@ -19,7 +19,7 @@ export default class Rect {
   }
 
   render() {
-    this.context.drawRect(this.size.x,this.size.y,this.pos.x,this.pos.y);
+    this.context.fillRect(this.pos.x,this.pos.y,this.size.x,this.size.y);
   }
 
 }
